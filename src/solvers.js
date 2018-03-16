@@ -61,30 +61,32 @@ window.countNRooksSolutions = function(n) {
 
 // return a matrix (an array of arrays) representing a single nxn chessboard, with n queens placed such that none of them can attack each other
 window.findNQueensSolution = function(n) {
-  var solution = undefined; //fixme
-
+  
   var matrix = new Board({n:n}); 
-  //console.log(matrix);
-  var rows = matrix.rows(n);
-  //console.log(rows);
-  // matrix.togglePiece(0, 1);
+  var solution = matrix.rows(); 
+
   var innerFunction = function(row){
     if(row === n){
+      // making a copy of matrix.rows() so not mutating original 
+      // if I just do matrix.rows().slice() -> it makes a shallow copy (which inner rows still points to the original)
+      solution = _.map(matrix.rows(), function(row){
+        return row.slice();
+      });
       return;
     }
+  
     for(var column = 0; column < n; column++) {
       matrix.togglePiece(row, column);
       if (!matrix.hasAnyQueenConflictsOn(row, column)){
         innerFunction(row + 1);
-      } else {
+      } 
         matrix.togglePiece(row, column);
-      }
+      
     }
   }
   innerFunction(0);
 
   // return a matrix as a solution 
-  solution = rows;
   
   console.log('Single solution for ' + n + ' queens:', JSON.stringify(solution));
   return solution;
