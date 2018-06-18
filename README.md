@@ -1,6 +1,7 @@
 # N-Queens
 
 > The problem in a nutshell
+
 Given an n x n chessboard, how many different ways can you place n queens, such that none of them are attacking each other?
 
 # Helpful Info
