@@ -13,10 +13,10 @@ Don't reinvent wheel where you don't have to. Use the Board constructor you buil
 - Rather than setting or getting object properties directly with plain JavaScript, Backbone provides the get and set methods. Play with the getters and setters that Backbone provides
   example: `board.get(3)` will return the 3rd row of the instance `board` (assuming that instance exists)
 
-- Rows run horizontally, left to right
-- Columns run vertically, top to bottom
-- Major Diagonals run diagonally, top-left to bottom-right
-- Minor Diagonals run diagonally, top-right to bottom-left
+- <strong>Rows</strong> run horizontally, left to right
+- <strong>Columns</strong> run vertically, top to bottom
+- <strong>Major Diagonals</strong> run diagonally, top-left to bottom-right
+- <strong>Minor Diagonals</strong> run diagonally, top-right to bottom-left
 - In chess the rook piece moves and attacks horizontally (along rows) or vertically (along columns), through any number of unoccupied squares
 - In chess the queen piece moves and attacks horizontally (along rows), vertically (along columns), or diagonally (along major and minor diagonals), through any number of unoccupied squares
 
